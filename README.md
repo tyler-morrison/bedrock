@@ -1,26 +1,22 @@
-# [Bedrock](https://roots.io/bedrock/)
-[![Build Status](https://travis-ci.org/roots/bedrock.svg)](https://travis-ci.org/roots/bedrock)
+# Craft Bedrock
 
-Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
+Craft Bedrock is a modern Craft CMS stack that helps you get started with the best development tools and project structure.
 
-Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology.
 
 ## Features
 
 * Better folder structure
 * Dependency management with [Composer](http://getcomposer.org)
-* Easy WordPress configuration with environment specific files
+* Easy Craft configuration with environment specific files
 * Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
 * Autoloader for mu-plugins (use regular plugins as mu-plugins)
-* Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
-Use [Trellis](https://github.com/roots/trellis) for additional features:
+Use [Craft Trellis](https://github.com/tyler-morrison/craft-trellis) for additional features:
 
 * Easy development environments with [Vagrant](http://www.vagrantup.com/)
 * Easy server provisioning with [Ansible](http://www.ansible.com/) (Ubuntu 14.04, PHP 7, MariaDB)
 * One-command deploys
-
-See a complete working example in the [roots-example-project.com repo](https://github.com/roots/roots-example-project.com).
 
 ## Requirements
 
@@ -29,45 +25,31 @@ See a complete working example in the [roots-example-project.com repo](https://g
 
 ## Installation
 
-1. Create a new project - `composer create-project roots/bedrock`
+1. Create a new project - `composer create-project craft/bedrock`
 2. Copy `.env.example` to `.env` and update environment variables:
   * `DB_NAME` - Database name
   * `DB_USER` - Database user
   * `DB_PASSWORD` - Database password
   * `DB_HOST` - Database host
-  * `WP_ENV` - Set to environment (`development`, `staging`, `production`)
-  * `WP_HOME` - Full URL to WordPress home (http://example.com)
-  * `WP_SITEURL` - Full URL to WordPress including subdirectory (http://example.com/wp)
-  * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT` - Generate with [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command) or from the [Roots WordPress Salt Generator](https://roots.io/salts.html)
-3. Add theme(s) in `web/app/themes` as you would for a normal WordPress site.
-4. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
-5. Access WP admin at `http://example.com/wp/wp-admin`
+  * `CRAFT_ENV` - Set to environment (`development`, `staging`, `production`)
+  * `CRAFT_HOME` - Full URL to Craft CMS home (http://example.com)
+  * `CRAFT_CP` - Custom configuration for admin c-panel
+3. Add theme(s) in `templates` as you would for a normal Craft site.
+4. Set your site vhost document root to `/path/to/site/public/` (`/path/to/site/current/public/` if using deploys)
+5. Access WP admin at `http://example.com/{CRAFT_CP}`
 
 ## Deploys
 
-There are two methods to deploy Bedrock sites out of the box:
+Deploy Craft Bedrock sites out of the box using [Craft Trellis](https://github.com/roots/trellis).
 
-* [Trellis](https://github.com/roots/trellis)
-* [bedrock-capistrano](https://github.com/roots/bedrock-capistrano)
+## Craft Documentation
+Installation instructions and much more.
+https://craftcms.com/docs
 
-Any other deployment method can be used as well with one requirement:
+## Craft Changelog
+Release notes with bug fixes, improvements and additions.
+https://craftcms.com/changelog
 
-`composer install` must be run as part of the deploy process.
-
-## Documentation
-
-Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://roots.io/bedrock/docs/).
-
-## Contributing
-
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
-
-## Community
-
-Keep track of development and community news.
-
-* Participate on the [Roots Discourse](https://discourse.roots.io/)
-* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
+## Craft Forums
+A great place to ask your Craft questions, meet the awesome Craft community and earn mad reputation.
+https://craftcms.stackexchange.com/
