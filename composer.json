@@ -1,10 +1,14 @@
 {
-  "name": "roots/bedrock",
+  "name": "craft/bedrock",
   "type": "project",
   "license": "MIT",
-  "description": "A modern WordPress stack",
-  "homepage": "https://roots.io/bedrock/",
+  "description": "A modern Craft CMS stack",
   "authors": [
+    {
+      "name": "Tyler Morrison",
+      "email": "tyler@counterpointstudio.com",
+      "homepage": "https://github.com/tyler-morrison"
+    },
     {
       "name": "Scott Walkinshaw",
       "email": "scott.walkinshaw@gmail.com",
@@ -17,43 +21,28 @@
     }
   ],
   "keywords": [
-    "bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
+    "bedrock", "craft", "stack", "composer", "vagrant"
   ],
-  "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
-  },
   "config": {
     "preferred-install": "dist"
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    }
-  ],
   "require": {
     "php": ">=5.6",
     "composer/installers": "~1.0.12",
     "vlucas/phpdotenv": "^2.0.1",
-    "johnpbloch/wordpress": "4.5.3",
-    "oscarotero/env": "^1.0",
-    "roots/wp-password-bcrypt": "1.0.0"
+    "oscarotero/env": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
   },
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
-    },
-    "wordpress-install-dir": "web/wp"
+      "plugins/{$name}/": ["type:craft-plugin"]
+    }
   },
   "scripts": {
     "test": [
-      "vendor/bin/phpcs --ignore=web/wp/,vendor/ -n -s ."
+      "vendor/bin/phpcs --ignore=app/,vendor/ -n -s ."
     ]
   }
 }
